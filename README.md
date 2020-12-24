@@ -35,10 +35,56 @@ To bring voice control to an Android application:
         }
     ```
 
+4. Add AsrButton in your layout file.
+    ```xml
+        <com.bit.asrsdk.AsrButton
+                android:id="@+id/asrbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@drawable/active_mic"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_gravity="bottom|end"
+                android:clickable="false" />
+    ```
+5. The following is the example code to use asr sdk.
+    ```java
+        ConfigSdk config = ConfigSdk.Builder.newInstance()
+                    .setProjectId("F1i2aEjDaUC8aXZlPSOUxgPboRA9CF0D")
+                    .build();
+        config.init(getApplicationContext());
 
 
-4. Use the Bagan ASR Android SDK to embed to your application.
-    
+        AsrButton asrButton = (AsrButton) findViewById(R.id.asrbutton);
+        asrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AudioActivity.class);
+                startActivityForResult(intent, ASRConstant.VOICE_REQUEST_CODE);
+            }
+        });
+
+        @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ASRConstant.VOICE_REQUEST_CODE) {
+            String result = "";
+            try {
+                result = data.getStringExtra(ASRConstant.VOICE_REQUEST_DATA);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                JSONObject resultJsonObject = new JSONObject(result);
+                Log.e("ASR", "Result Value : " + resultJsonObject.toString());
+                 info.setText(resultJsonObject.getString("text")+ "");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+    ```
 
 
 ## Example  app
