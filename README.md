@@ -1,25 +1,17 @@
-# Bagan voice assistant SDK for Android
+# Bagan Automatic Speech Recognition SDK for Android
 
-[Bagan Platform](https://Bagan.app/) • [Bagan Studio](https://studio.Bagan.app/register) • [Docs](https://Bagan.app/docs) • [FAQ](https://Bagan.app/docs/usage/additional/faq) •
-[Blog](https://Bagan.app/blog/) • [Twitter](https://twitter.com/Baganvoiceai)
-
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Bagan-ai/Bagan-sdk-android)](https://github.com/Bagan-ai/Bagan-sdk-android/releases)
-[![CircleCI](https://circleci.com/gh/Bagan-ai/Bagan-sdk-android.svg?style=shield)](https://circleci.com/gh/Bagan-ai/Bagan-sdk-android)
-
-Add a voice assistant to your application. With no or minimal changes to the existing UI.
+Add a myanmar language speech recognition system to your application. With no or minimal changes to the existing UI.
 
 ## How to start
 
 To bring voice control to an Android application:
 
-1. [Sign up for Bagan Studio](https://studio.Bagan.app/register) to build and test voice scripts in JavaScript.
-2. Use the Bagan Android SDK to embed the Bagan button to your application or page. For details, see [Bagan AI documentation]( https://Bagan.app/docs/client-api/android/android-api).
+1. [Sign up for Bagan ASR Console](https://cms.baganasr.com/)
+2. Use the Bagan ASR Android SDK to embed the Bagan button to your application or page. For details, see [Bagan AI documentation]( https://Bagan.app/docs/client-api/android/android-api).
 
-Check out our [demo](https://play.google.com/store/apps/details?id=app.Bagan.playground).
 
 ## Downloads
 * [Maven artifact](https://search.maven.org/artifact/app.Bagan/sdk)
-* [Bagan Android SDK releases](https://github.com/Bagan-ai/Bagan-sdk-android/releases)
 
 
 ## Example  apps
