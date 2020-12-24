@@ -100,6 +100,13 @@ To bring voice control to an Android application:
                     .build();
 
     ```
+    
+7. Add activity declaration in your Android Manifest .
+```xml
+        <activity android:name="com.bit.asrsdk.AudioActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+```
 
 
 
