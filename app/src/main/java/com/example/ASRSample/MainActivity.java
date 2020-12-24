@@ -1,0 +1,67 @@
+package com.example.ASRSample;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import com.bit.asrsdk.ASRConstant;
+import com.bit.asrsdk.AsrButton;
+import com.bit.asrsdk.AudioActivity;
+import com.bit.asrsdk.ConfigSdk;
+import com.example.ASRSample.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.IOException;
+
+public class   MainActivity extends AppCompatActivity {
+    private TextView info;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        info = findViewById(R.id.info);
+        info.setText("");
+        try {
+            ConfigSdk config = ConfigSdk.Builder.newInstance()
+                    .setProjectId("F1i2aEjDaUC8aXZlPSOUxgPboRA9CF0D")
+                    .build();
+            config.init(getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        AsrButton asrButton = (AsrButton) findViewById(R.id.asrbutton);
+        asrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AudioActivity.class);
+                startActivityForResult(intent, ASRConstant.VOICE_REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ASRConstant.VOICE_REQUEST_CODE) {
+            String result = "";
+            try {
+                result = data.getStringExtra(ASRConstant.VOICE_REQUEST_DATA);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                JSONObject resultJsonObject = new JSONObject(result);
+                Log.e("ASR", "Result Value : " + resultJsonObject.toString());
+                 info.setText(resultJsonObject.getString("text")+ "");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
