@@ -11,6 +11,7 @@ To bring voice control to an Android application:
  ![Alt text](assets/img1.png "Title")
 
     You can create two type of project (Recognition and Classification).
+    For classification we need to add categories and  items. 
 
 3. Add a reference as a Maven dependency
     Do the following:
@@ -50,7 +51,7 @@ To bring voice control to an Android application:
 5. The following is the example code to use asr sdk.
     ```java
         ConfigSdk config = ConfigSdk.Builder.newInstance()
-                    .setProjectId("F1i2aEjDaUC8aXZlPSOUxgPboRA9CF0D")
+                    .setProjectId("YOUR_PROJECT_ID_HERE")
                     .build();
         config.init(getApplicationContext());
 
@@ -85,6 +86,8 @@ To bring voice control to an Android application:
         }
     }
     ```
+
+    
 
 
 ## Example  app
