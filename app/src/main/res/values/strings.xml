@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Bagan ASR </string>
+    <string name="app_name">BAGAN ASR</string>
+    <string name="nkl_text">နေကောင်းလား </string>
+    <string name="mgl_text">မင်္ဂလာပါ</string>
+    <string name="where_text">ဘယ်မှာနေတာလဲ</string>
+    <string name="w_yangon">ရန်ကုန်ရာသီဥတုအခြေအနေ</string>
+    <string name="w_mandalay">မန္တလေး ရာသီဥတုအခြေအနေ</string>
+    <string name="w_naypyitaw">နေပြည်တော်ရာသီဥတုအခြေအနေ</string>
 </resources>

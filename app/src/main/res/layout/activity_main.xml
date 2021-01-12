@@ -5,25 +5,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ASRSample.MainActivity">
-
-    <TextView
-        android:id="@+id/info"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <com.bit.asrsdk.AsrButton
-        android:id="@+id/asrbutton"
-        android:layout_width="wrap_content"
+    tools:context=".MainActivity">
+       <TextView
+           android:id="@+id/info"
+           android:layout_marginTop="15dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+               />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/active_mic"
-        tools:ignore="VectorDrawableCompat"
-        android:layout_gravity="bottom|end"
-        android:clickable="false" />
+        android:orientation="vertical">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:background="@mipmap/ic_launcher"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Classification Project"
+                android:layout_marginLeft="25dp"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"/>
+            <Button
+                android:id="@+id/btnClass"
+                android:layout_margin="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_corner"
+                android:textColor="@color/white"
+                android:text="Weather "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recognition Project"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/btnReg"
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corner"
+            android:textColor="@color/white"
+            android:text="Small Talk"/>
+
+    </LinearLayout>
+        <com.bit.asrsdk.AsrButton
+            android:id="@+id/asrbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/active_mic"
+            tools:ignore="VectorDrawableCompat"
+            android:layout_gravity="bottom|end"
+            android:visibility="gone"
+            android:clickable="false" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:visibility="gone"
+            app:srcCompat="@drawable/active_mic"
+            tools:ignore="VectorDrawableCompat" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

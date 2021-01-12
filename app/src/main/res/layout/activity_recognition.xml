@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="4"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:scrollbars="vertical"
+                android:textSize="15sp"
+                />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/teal_700"
+            android:text="Click on the button and Say....."
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textColor="@color/teal_700"
+         android:text="@string/mgl_text"
+         android:layout_marginLeft="15dp"
+         android:layout_marginTop="15dp"
+         android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_700"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/nkl_text"
+        android:textSize="15sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/teal_700"
+            android:text="@string/where_text"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"/>
+    </LinearLayout>
+    </LinearLayout>
+    <com.bit.asrsdk.AsrButton
+        android:id="@+id/asrbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:srcCompat="@drawable/active_mic"
+        tools:ignore="VectorDrawableCompat"
+        android:layout_gravity="bottom|end"
+        android:clickable="false" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
