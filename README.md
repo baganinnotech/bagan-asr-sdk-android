@@ -41,7 +41,7 @@ To bring voice control to an Android application:
 
     ```gradle
         dependencies {
-            implementation 'com.github.baganinnotech:internal-bagan-asr-sdk-android:1.0.2'
+            implementation 'com.github.baganinnotech:internal-bagan-asr-sdk-android:1.1.3'
         }
     ```
 
@@ -104,8 +104,8 @@ To bring voice control to an Android application:
     Add category id in your code.
     ```java
          ConfigSdk config = ConfigSdk.Builder.newInstance()
-                    .setProjectId("YOUR_PROJECT_ID_HERE")
-                    .setCategoryId("YOUR_CATEGORY_ID_HERE")
+                    .setProjectKey("YOUR_PROJECT_ID_HERE")
+                    .setCategoryKey("YOUR_CATEGORY_ID_HERE")
                     .build();
 
     ```
@@ -116,9 +116,14 @@ To bring voice control to an Android application:
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 ```
+8. Add permissions in your Android Manifest.
+```xml
+ <uses-permission android:name="android.permission.INTERNET" />
+ <application
+        
+        android:usesCleartextTraffic="true">
 
-
-
+```
 ## Example  app
 
 You can download and build this repository for example app
