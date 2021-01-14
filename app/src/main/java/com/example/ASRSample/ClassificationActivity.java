@@ -40,8 +40,8 @@ public class ClassificationActivity extends AppCompatActivity {
         city.setText("");
         try {
             ConfigSdk config = ConfigSdk.Builder.newInstance()
-                    .setProjectId("xpULS1aoXfs7jDWyziTPQLzx6iMbPFFE")
-                    .setCategoryId("jNTgZyo8GfGtpxfZZknksHiboCTf4GfJ")
+                    .setProjectKey("xpULS1aoXfs7jDWyziTPQLzx6iMbPFFE")
+                    .setCategoryKey("jNTgZyo8GfGtpxfZZknksHiboCTf4GfJ")
                     .build();
             config.init(getApplicationContext());
         } catch (IOException e) {

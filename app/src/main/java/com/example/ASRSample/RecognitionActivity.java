@@ -30,7 +30,7 @@ public class RecognitionActivity extends AppCompatActivity {
         info.setText("");
         try {
             ConfigSdk config = ConfigSdk.Builder.newInstance()
-                    .setProjectId("F1i2aEjDaUC8aXZlPSOUxgPboRA9CF0D")
+                    .setProjectKey("F1i2aEjDaUC8aXZlPSOUxgPboRA9CF0D")
                     .build();
             config.init(getApplicationContext());
             Log.e("coming:","coming:");

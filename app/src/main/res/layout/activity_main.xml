@@ -77,4 +77,5 @@
             app:srcCompat="@drawable/active_mic"
             tools:ignore="VectorDrawableCompat" />
 
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

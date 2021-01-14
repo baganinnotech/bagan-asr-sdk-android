@@ -1,3 +1,4 @@
+
 # Bagan voice assistant SDK for Android
 
 [Bagan Platform](https://Bagan.app/) • [Bagan Studio](https://studio.Bagan.app/register) • [Docs](https://Bagan.app/docs) • [FAQ](https://Bagan.app/docs/usage/additional/faq) •
@@ -8,33 +9,122 @@
 
 Add a voice assistant to your application. With no or minimal changes to the existing UI.
 
+
 ## How to start
 
 To bring voice control to an Android application:
 
-1. [Sign up for Bagan Studio](https://studio.Bagan.app/register) to build and test voice scripts in JavaScript.
-2. Use the Bagan Android SDK to embed the Bagan button to your application or page. For details, see [Bagan AI documentation]( https://Bagan.app/docs/client-api/android/android-api).
 
-Check out our [demo](https://play.google.com/store/apps/details?id=app.Bagan.playground).
+1. [Sign up for Bagan ASR Console](https://cms.baganasr.com/)
+2. Create Project 
+ ![Alt text](assets/img1.png "Title")
 
-## Downloads
-* [Maven artifact](https://search.maven.org/artifact/app.Bagan/sdk)
-* [Bagan Android SDK releases](https://github.com/Bagan-ai/Bagan-sdk-android/releases)
+    You can create two type of project (Recognition and Classification).
+    For classification we need to add categories and  items. 
+
+3. Add a reference as a Maven dependency
+    Do the following:
+    Open the build.gradle file at the project level.
+    In repositories block, add maven { url 'https://jitpack.io' } .
+    ```gradle
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            maven { url 'https://jitpack.io' }  // add this line
+        }
+    }
+    ```
+
+    Open the build.gradle file at the module level.
+    In the dependencies block, add the dependency configuration for the Bagan ASR Android SDK.
+
+    ```gradle
+        dependencies {
+            implementation 'com.github.baganinnotech:internal-bagan-asr-sdk-android:1.0.2'
+        }
+    ```
+
+4. Add AsrButton in your layout file.
+    ```xml
+        <com.bit.asrsdk.AsrButton
+                android:id="@+id/asrbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@drawable/active_mic"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_gravity="bottom|end"
+                android:clickable="false" />
+    ```
+5. The following is the example code to use asr sdk.
+    ```java
+        ConfigSdk config = ConfigSdk.Builder.newInstance()
+                    .setProjectId("YOUR_PROJECT_ID_HERE")
+                    .build();
+        config.init(getApplicationContext());
 
 
-## Example  apps
+        AsrButton asrButton = (AsrButton) findViewById(R.id.asrbutton);
+        asrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AudioActivity.class);
+                startActivityForResult(intent, ASRConstant.VOICE_REQUEST_CODE);
+            }
+        });
 
-In the [Examples](https://github.com/Bagan-ai/Bagan-sdk-android/tree/master/examples) folder, you can find example apps integrated with the Bagan voice SDK for Android. Launch the app, tap the Bagan button and start giving voice commands. For example, in the Bagan Sample app you can ask: "How are you doing?" or "What's your name?"
+        @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ASRConstant.VOICE_REQUEST_CODE) {
+            String result = "";
+            try {
+                result = data.getStringExtra(ASRConstant.VOICE_REQUEST_DATA);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                JSONObject resultJsonObject = new JSONObject(result);
+                Log.e("ASR", "Result Value : " + resultJsonObject.toString());
+                 info.setText(resultJsonObject.getString("text")+ "");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-## What is Bagan?
+        }
+    }
+    ```
+6. For classification project. Do the following:
+    Create category in web console.
+    Add item in that category.
+    Copy category id from web console.
+    ![Alt text](assets/img2.png "Title")
 
-Bagan is a conversational AI platform that lets you build voice assistants, chatbots and conversational bots for your business from scratch. It offers the whole set of tools to design, embed and host a voice interface solution for your app:
+    Add category id in your code.
+    ```java
+         ConfigSdk config = ConfigSdk.Builder.newInstance()
+                    .setProjectId("YOUR_PROJECT_ID_HERE")
+                    .setCategoryId("YOUR_CATEGORY_ID_HERE")
+                    .build();
 
-* [Bagan Studio](https://studio.Bagan.app/) — a web portal where you can create and manage a dialog scenario for the conversational assistant or chatbot
-* [Voice SDKs](https://github.com/Bagan-ai) to embed the Bagan voice to applications running on multiple platforms, both web and mobile
-* Bagan Cloud — Bagan's AI-backend that hosts and runs voice scripts, and accomplishes all Spoken Language Understanding (SLU) and Natural Language Processing (NLP) tasks
+    ```
+    
+7. Add activity declaration in your Android Manifest .
+```xml
+        <activity android:name="com.bit.asrsdk.AudioActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+```
 
-To enable voice control in your app, Bagan leverages its NLP-powered engine with industry’s best Automatic Speech Recognition and Speech Synthesis tools and methods. There is no need to create datasets or train your voice solution on your own: Bagan automatically trains on voice commands using your app’s terms.
+
+
+## Example  app
+
+You can download and build this repository for example app
+
+or [Download apk](https://github.com/baganinnotech/bagan-asr-sdk-android/releases/download/v1.0/app-release.apk)
 
 ## Have questions?
-If you have any questions or if something is missing in the documentation, please [contact us](mailto:support@Bagan.app), or tweet us [@Baganvoiceai](https://twitter.com/Baganvoiceai). We love hearing from you!)
+If you have any questions or if something is missing in the documentation, please [contact us](mailto:baganinnotech@gmail.com). We love hearing from you!)
+
