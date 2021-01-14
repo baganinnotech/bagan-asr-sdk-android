@@ -60,7 +60,7 @@ To bring voice control to an Android application:
 5. The following is the example code to use asr sdk.
     ```java
         ConfigSdk config = ConfigSdk.Builder.newInstance()
-                    .setProjectId("YOUR_PROJECT_ID_HERE")
+                    .setProjectKey("YOUR_PROJECT_ID_HERE")
                     .build();
         config.init(getApplicationContext());
 
