@@ -131,5 +131,5 @@ You can download and build this repository for example app
 or [Download apk](https://github.com/baganinnotech/bagan-asr-sdk-android/releases/download/v1.1/app-release.apk)
 
 ## Have questions?
-If you have any questions or if something is missing in the documentation, please [contact us](mailto:baganinnotech@gmail.com). We love hearing from you!)
+If you have any questions or if something is missing in the documentation, please [contact us](mailto:baganinnovation@gmail.com). We love hearing from you!)
 
