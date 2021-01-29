@@ -41,7 +41,7 @@ To bring voice control to an Android application:
 
     ```gradle
         dependencies {
-            implementation 'com.github.baganinnotech:internal-bagan-asr-sdk-android:1.1.3'
+            implementation 'com.github.baganinnotech:internal-bagan-asr-sdk-android:1.1.4'
         }
     ```
 
